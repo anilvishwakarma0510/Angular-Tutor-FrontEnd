@@ -1,0 +1,46 @@
+<div class="login-page">
+    <div class="login-box">
+        <div class="login-header">
+            <a routerLink="/admin/login"><b>Anil</b></a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p>Sign in</p>
+                <div *ngIf="error && error.length > 0" class="alert alert-danger">{{error}}</div>
+                <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+                    <div class="mb-3">
+                        <div class="input-group">
+                            <input formControlName="email" type="email" placeholder="Email" name="password" id="email" [class.is-invalid]="f['email'].touched && f['email'].invalid" class="form-control">
+                            <span class="input-group-text"><fa-icon [icon]="faEnvelope"></fa-icon></span>
+
+                        </div>
+                        <div *ngIf="f['email'].invalid && f['email'].touched" class="errors text-danger">
+                            <p *ngIf="f['email'].errors && f['email'].errors['required']">Email is required</p>
+                            <p *ngIf="f['email'].errors && f['email'].errors['email']">Please enter valid email</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                    <div class="input-group">
+
+                        <input [class.is-invalid]="f['password'].touched && f['password'].invalid" formControlName="password" type="password" placeholder="password" name="password" id="password"
+                            class="form-control">
+                        <span class="input-group-text"><fa-icon [icon]="faLock"></fa-icon></span>
+
+                    </div>
+
+                    <div *ngIf="f['password'].invalid && f['password'].touched" class="errors text-danger">
+                        <p *ngIf="f['password'].errors && f['password'].errors['required']">Password is required</p>
+                        
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-grid">
+                            <button [disabled]="loginForm.invalid" [class.disabled]="loginForm.invalid" type="submit"  class="btn btn-outline-primary btn-block">Sign In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

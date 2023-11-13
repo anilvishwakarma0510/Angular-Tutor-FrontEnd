@@ -1,0 +1,15 @@
+<li class="nav-item">
+    
+    <a class="nav-link" id="collapsmenu" (click)="toggleCollaps()" [attr.aria-expanded]="!isCollaps" >
+        <fa-icon [class.fa-fw]="true" [icon]="icon"></fa-icon>
+        
+        <span>{{title}}</span>
+        <fa-icon *ngIf="!isToggled" style="float: right;" [class.fa-fw]="true" [icon]="isCollaps ? faChevronRight : faChevronCircleDown"></fa-icon>
+    </a>
+    <div id="collapseTwo" [ngbCollapse]="isCollaps" class="collapse">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">{{subTitle}}:</h6>
+            <a class="collapse-item" *ngFor="let menuItem of menuItems" routerLink="{{menuItem.link}}">{{ menuItem.text }}</a>
+        </div>
+    </div>
+</li>
