@@ -11,7 +11,7 @@ import { Iuser } from 'src/app/Interface/IUser';
 })
 export class HeaderComponent {
 
-  user:Iuser = null as unknown as Iuser;
+  user:Iuser|null = null;
 
   constructor(
     private Auth:AuthService,
@@ -21,8 +21,9 @@ export class HeaderComponent {
   }
 
   ngOnInit(){
-    this.user = this.Auth.getUser();
-    console.log(this.user,"sdfsf");
+    this.Auth.user$.subscribe(user => {
+      this.user = user;
+    });
   }
 
   icons  = {

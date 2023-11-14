@@ -133,23 +133,19 @@
       <li class="nav-item dropdown no-arrow " (click)="toggelProfileIcon()" [class.show]="showProfileIcon" >
           <a class="nav-link dropdown-toggle"  id="userDropdown" role="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.firstName}} {{user.lastName}}</span>
-              <img class="img-profile rounded-circle" src="{{user.profileImage}}">
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user?.firstName}} {{user?.lastName}}</span>
+              <img class="img-profile rounded-circle" src="{{user?.profileImage}}">
           </a>
           <!-- Dropdown - User Information -->
           <div [class.show]="showProfileIcon" class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
               aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" routerLink="/admin/edit-profile">
                   <fa-icon [icon]="icons.faUser" class="fa-sm fa-fw mr-2 text-gray-400"></fa-icon>
                   Profile
               </a>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" routerLink="/admin/change-password">
                   <fa-icon [icon]="icons.faCogs" class="fa-sm fa-fw mr-2 text-gray-400"></fa-icon>
                   Settings
-              </a>
-              <a class="dropdown-item" href="#">
-                  <fa-icon [icon]="icons.faList" class="fa-sm fa-fw mr-2 text-gray-400"></fa-icon>
-                  Activity Log
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" (click)="logOut()" >

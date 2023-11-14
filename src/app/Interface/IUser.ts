@@ -4,6 +4,7 @@ export type Iuser = {
     lastName:string,
     email:string,
     profileImage?:string|null,
+    phoneNumber?:string|null,
     userRole:{
         id:number,
         name:string
@@ -11,3 +12,9 @@ export type Iuser = {
     emailVerified:boolean,
     status:boolean
 }
+
+export type IChangePassword = {
+    currentPassword:string,
+    newPassword:string,
+    confirmPassword:string,
+  }

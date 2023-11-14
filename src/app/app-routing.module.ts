@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './user/not-found/not-found.component';
+import { LayoutComponent } from './user/pages/include/layout/layout.component';
 
 const routes: Routes = [
   {
@@ -10,6 +12,16 @@ const routes: Routes = [
     path:'admin',
     loadChildren:()=>import('./admin/admin.module').then(module => module.AdminModule)
   },
+  {
+    path:'**',
+    component:LayoutComponent,
+    children:[
+      {
+        path:'**',
+        component:NotFoundComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

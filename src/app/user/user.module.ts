@@ -15,6 +15,7 @@ import { ContactDetailComponent } from './pages/contact-detail/contact-detail.co
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { PortfolioDetailComponent } from './pages/portfolio-detail/portfolio-detail.component';
 import { TeamsComponent } from './pages/teams/teams.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 //import "../../assets/css/style.scss"
 
 
@@ -32,7 +33,8 @@ import { TeamsComponent } from './pages/teams/teams.component';
     ContactDetailComponent,
     PortfolioComponent,
     PortfolioDetailComponent,
-    TeamsComponent
+    TeamsComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/include/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { adminGuard } from '../guard/admin.guard';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,14 @@ const routes: Routes = [
       {
         path:'dashboard',
         component:DashboardComponent
+      },
+      {
+        path:'edit-profile',
+        component:EditProfileComponent
+      },
+      {
+        path:'change-password',
+        component:ChangePasswordComponent
       },
       {
         path:'',

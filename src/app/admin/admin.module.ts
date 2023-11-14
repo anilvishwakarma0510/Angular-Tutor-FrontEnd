@@ -12,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LayoutComponent,
     DashboardComponent,
     MenuItemComponent,
+    EditProfileComponent,
+    ChangePasswordComponent,
    
   ],
   imports: [

@@ -1,0 +1,73 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Edit Profile</h6>
+        </div>
+        <div class="card-body">
+            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+            <div *ngIf="success" class="alert alert-success">{{success}}</div>
+                <form [formGroup]="editProfile" (ngSubmit)="handleSubmit()">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input formControlName="firstName" type="text" placeholder="First Name" name="firstName" id="firstName" [class.is-invalid]="f['firstName'].touched && f['firstName'].invalid" class="form-control">
+                        </div>
+                        <div *ngIf="f['firstName'].invalid && f['firstName'].touched" class="errors text-danger">
+                            <p *ngIf="f['firstName'].errors && f['firstName'].errors['required']">First Name is required</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input formControlName="lastName" type="text" placeholder="Last Name" name="lastName" id="lastName" [class.is-invalid]="f['lastName'].touched && f['lastName'].invalid" class="form-control">
+                        </div>
+                        <div *ngIf="f['lastName'].invalid && f['lastName'].touched" class="errors text-danger">
+                            <p *ngIf="f['lastName'].errors && f['lastName'].errors['required']">Last Name is required</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input formControlName="email" type="text" placeholder="Email" name="email" id="email" [class.is-invalid]="f['email'].touched && f['email'].invalid" class="form-control">
+                        </div>
+                        <div *ngIf="f['email'].invalid && f['email'].touched" class="errors text-danger">
+                            <p *ngIf="f['email'].errors && f['email'].errors['required']">Email Name is required</p>
+                            <p *ngIf="f['email'].errors && f['email'].errors['email']">Please enter valid email</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input formControlName="phoneNumber" type="text" placeholder="Phone Number" name="phoneNumber" id="phoneNumber" [class.is-invalid]="f['phoneNumber'].touched && f['phoneNumber'].invalid" class="form-control">
+                        </div>
+                        <div *ngIf="f['phoneNumber'].invalid && f['phoneNumber'].touched" class="errors text-danger">
+                            <p *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['required']">Phone Number is required</p>
+                            <p *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['minlength']">Please enter at least 10 digit</p>
+                            <p *ngIf="f['phoneNumber'].errors && f['phoneNumber'].errors['pattern']">Please enter only number</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <input (change)="onFileSelect($event)" formControlName="profileImage" type="file" placeholder="Profile Image" name="profileImage" id="profileImage"  class="form-control">
+                        </div>
+                        <img *ngIf="previewImage" [src]="previewImage" alt="Preview" width="100" height="100" />
+                        <div *ngIf="fileError" class="errors text-danger">
+                            <p  >Invalid image file. Please select a valid image file (JPEG, PNG, or GIF) with a maximum size of 5 MB.</p>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="row">
+                        <div class="d-grid">
+                            <button [disabled]="editProfile.invalid || fileError" [class.disabled]="editProfile.invalid || fileError" type="submit"  class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
